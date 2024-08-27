@@ -32,7 +32,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post(`${baseURL}/api/v1/user/login`, {
+      const { data } = await axios.post(`https://traveltales-ghsm.onrender.com/api/v1/user/login`, {
         email: inputs.email,
         password: inputs.password,
       });
