@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import BlogCard from "../components/BlogCard";
+
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
-  //get blogs
+
+  // Get blogs
   const getAllBlogs = async () => {
     try {
-      const { data } = await axios.get("/api/v1/blog/all-blog");
+      // Get the base URL from environment variables
+      const baseURL = import.meta.env.VITE_BASE_URL;
+
+      const { data } = await axios.get(`${baseURL}/api/v1/blog/all-blog`);
       if (data?.success) {
         setBlogs(data?.blogs);
       }
@@ -14,14 +19,17 @@ const Blogs = () => {
       console.log(error);
     }
   };
+
   useEffect(() => {
     getAllBlogs();
   }, []);
+
   return (
     <div>
       {blogs &&
         blogs.map((blog) => (
           <BlogCard
+            key={blog?._id}
             id={blog?._id}
             isUser={localStorage.getItem("userId") === blog?.user?._id}
             title={blog?.title}

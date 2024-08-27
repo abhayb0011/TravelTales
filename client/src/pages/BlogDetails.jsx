@@ -3,57 +3,63 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 import { Box, Button, InputLabel, TextField, Typography } from "@mui/material";
-const BlogDetails = () => {
-  const [blog, setBlog] = useState({});
-  const id = useParams().id;
-  const navigate = useNavigate();
-  const [inputs, setInputs] = useState({});
-  // get blog details
-  const getBlogDetail = async () => {
-    try {
-      const { data } = await axios.get(`/api/v1/blog/get-blog/${id}`);
-      if (data?.success) {
-        setBlog(data?.blog);
-        setInputs({
-          title: data?.blog.title,
-          description: data?.blog.description,
-          image: data?.blog.image,
-        });
-      }
-    } catch (error) {
-      console.log(error);
+const getBlogDetail = async () => {
+  try {
+    // Get the base URL from environment variables
+    const baseURL = import.meta.env.VITE_BASE_URL;
+
+    // Make the axios GET request with the full URL
+    const { data } = await axios.get(`${baseURL}/api/v1/blog/get-blog/${id}`);
+    if (data?.success) {
+      setBlog(data?.blog);
+      setInputs({
+        title: data?.blog.title,
+        description: data?.blog.description,
+        image: data?.blog.image,
+      });
     }
-  };
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-  useEffect(() => {
-    getBlogDetail();
-  }, [id]);
+useEffect(() => {
+  getBlogDetail();
+}, [id]);
 
-  // input change
-  const handleChange = (e) => {
-    setInputs((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }));
-  };
-  //form
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const { data } = await axios.put(`/api/v1/blog/update-blog/${id}`, {
+// Input change handler
+const handleChange = (e) => {
+  setInputs((prevState) => ({
+    ...prevState,
+    [e.target.name]: e.target.value,
+  }));
+};
+
+// Form submission handler
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    // Get the base URL from environment variables
+    const baseURL = import.meta.env.VITE_BASE_URL;
+
+    // Make the axios PUT request with the full URL
+    const { data } = await axios.put(
+      `${baseURL}/api/v1/blog/update-blog/${id}`,
+      {
         title: inputs.title,
         description: inputs.description,
         image: inputs.image,
         user: id,
-      });
-      if (data?.success) {
-        toast.success("Blog Updated");
-        navigate("/my-blogs");
       }
-    } catch (error) {
-      console.log(error);
+    );
+    if (data?.success) {
+      toast.success("Blog Updated");
+      navigate("/my-blogs");
     }
-  };
+  } catch (error) {
+    console.log(error);
+  }
+
   console.log(blog);
   return (
     <v>

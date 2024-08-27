@@ -23,21 +23,27 @@ const Register = () => {
   //form handle
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     try {
-      const { data } = await axios.post("/api/v1/user/register", {
+      // Get the base URL from environment variables
+      const baseURL = import.meta.env.VITE_BASE_URL;
+      
+      const { data } = await axios.post(`${baseURL}/api/v1/user/register`, {
         username: inputs.username,
         email: inputs.email,
         password: inputs.password,
-        blogs:[]
+        blogs: []
       });
+  
       if (data.success) {
-        toast.success("User Register Successfully");
+        toast.success("User Registered Successfully");
         navigate("/login");
       }
     } catch (error) {
       console.log(error);
     }
   };
+  
   return (
     <>
       <form onSubmit={handleSubmit}>

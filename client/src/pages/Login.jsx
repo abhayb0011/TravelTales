@@ -25,11 +25,17 @@ const Login = () => {
   //form handle
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     try {
-      const { data } = await axios.post("/api/v1/user/login", {
+      // Get the base URL from environment variables
+      const baseURL = import.meta.env.VITE_BASE_URL;
+  
+      // Make the axios request with the full URL
+      const { data } = await axios.post(`${baseURL}/api/v1/user/login`, {
         email: inputs.email,
         password: inputs.password,
       });
+  
       if (data.success) {
         localStorage.setItem("userId", data?.user._id);
         dispatch(authActions.login());
@@ -40,6 +46,7 @@ const Login = () => {
       console.log(error);
     }
   };
+  
   return (
     <>
       <form onSubmit={handleSubmit}>
