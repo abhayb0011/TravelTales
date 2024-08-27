@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { authActions } from "../redux/store";
 import toast from "react-hot-toast";
 
-const baseURL = import.meta.env.VITE_BASE_URL;
+const baseURL = process.env.VITE_BASE_URL;
 
 const Login = () => {
   const navigate = useNavigate();
