@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import BlogCard from "../components/BlogCard";
 
-const baseURL = import.meta.env.VITE_BASE_URL;
+const baseURL = 'https://traveltales-ghsm.onrender.com';
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);

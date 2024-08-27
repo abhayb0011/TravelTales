@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 import { Box, Button, InputLabel, TextField, Typography } from "@mui/material";
 
-const baseURL = import.meta.env.VITE_BASE_URL;
+const baseURL = 'https://traveltales-ghsm.onrender.com';
 
 const BlogDetails = () => {
   const [blog, setBlog] = useState({});
