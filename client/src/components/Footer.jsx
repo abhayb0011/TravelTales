@@ -36,7 +36,7 @@ const Footer = () => {
             src={logo}
             alt="Logo"
             style={{
-              height: "auto",  
+              height: {xs:"2px", sm:"4px"},  
               width: "auto",
             }}
           />
