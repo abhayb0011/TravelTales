@@ -83,7 +83,7 @@ const Footer = () => {
             Terms and Conditions
           </Button>
           <Button
-            sx={{ color: "white", fontSize: { xs: "0.65rem", sm: "0.85rem" }, height: {xs:"4rem"} }}
+            sx={{ color: "white", fontSize: { xs: "0.65rem", sm: "0.85rem" }, height: {xs:"2rem"} }}
             variant="contained"
             component={Link}
             to="/help"
