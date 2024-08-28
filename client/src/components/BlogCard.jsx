@@ -76,7 +76,7 @@ export default function BlogCard({
         )}
       </Box>
       <br />
-      <CardMedia component="img" height="500rem" image={image} alt="Blog image" />
+      <CardMedia component="img" height={{sx:'100rem',sm:'200rem',md:'500rem'}} image={image} alt="Blog image" />
       <CardContent>
         <Typography variant="h4" sx={{ textAlign: "center" }}>
           {title}
