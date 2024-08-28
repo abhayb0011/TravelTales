@@ -101,7 +101,7 @@ const Header = () => {
             <img
               src={logo}
               alt="Logo"
-              style={{ height: "7rem", width: "auto" }}
+              style={{ height: "5rem", width: "auto" }}
             />
           </IconButton>
           <Typography
