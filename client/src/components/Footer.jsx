@@ -35,7 +35,7 @@ const Footer = () => {
           p: { xs: 1, sm: 2 },
           display: "flex",
           justifyContent: "space-between",
-          gap: isMobile ? "1 rem" : "2rem",
+          gap: {xs:1,sm:2},
         }}
       >
         <IconButton edge="start" sx={{ p: 0 }}>
