@@ -18,10 +18,10 @@ const ContactUs = () => {
             We would love to hear from you! You can reach us through the following channels:
           </Typography>
           <Typography variant="body1" paragraph sx={{ mb: 1, color: '#333' }}>
-            <strong>Email: </strong> abhayb0011@gmail.com
+            <strong>Email: </strong> abh*****@gmail.com
           </Typography>
           <Typography variant="body1" paragraph sx={{ mb: 1, color: '#333' }}>
-            <strong>Phone: </strong> 9057516298
+            <strong>Phone: </strong> 90*******8
           </Typography>
         </Box>
       </Paper>
