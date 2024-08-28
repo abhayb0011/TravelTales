@@ -25,17 +25,18 @@ const Footer = () => {
           p: { xs: 1, sm: 2 },
           display: "flex",
           justifyContent: "space-between",
+          gap: isMobile ? "1 rem" : "2rem"
         }}
       >
         <IconButton
           edge="start"
-          sx={{ p: 0, mb: { xs: 1, sm: 0 } }}
+          sx={{ p: 0 }}
         >
           <img
             src={logo}
             alt="Logo"
             style={{
-              height: isMobile ? "1.5rem" : "4rem",  // Reduced logo size
+              height: isMobile ? "1 rem" : "2rem",  
               width: "auto",
             }}
           />
