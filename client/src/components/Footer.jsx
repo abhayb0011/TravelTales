@@ -10,7 +10,7 @@ const Footer = () => {
         sx={{
           flexDirection: { xs: "column", sm: "row" },
           alignItems: "center",
-          justifyContent: "space-between",
+          justifyContent: "space-evenly",
           p: { xs: 2, sm: 3 },
         }}
       >
