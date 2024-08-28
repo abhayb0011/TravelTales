@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 //for debugging:
 console.log(import.meta.env);
 
-const baseURL = process.env.VITE_BASE_URL;
+const baseURL = import.meta.env.VITE_BASE_URL;
 
 const Login = () => {
   const navigate = useNavigate();

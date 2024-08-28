@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Box, Button, InputLabel, TextField, Typography } from "@mui/material";
 import toast from "react-hot-toast";
 
-const baseURL = process.env.VITE_BASE_URL;
+const baseURL = import.meta.env.VITE_BASE_URL;
 
 const CreateBlog = () => {
   const id = localStorage.getItem("userId");
