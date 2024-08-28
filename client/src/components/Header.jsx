@@ -113,7 +113,7 @@ const Header = () => {
               fontSize: { xs: 24, sm: 32 },
               textAlign: { xs: "center", sm: "left" },
               mb: { xs: 2, sm: 0 },
-              ml: {md:'4rem'}
+              ml: {md:'15rem'}
             }}
           >
             Unveiling the World's Wonders Through Captivating Blogs
