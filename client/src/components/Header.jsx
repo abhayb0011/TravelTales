@@ -12,7 +12,7 @@ import {
   ListItem,
   Divider,
   useMediaQuery,
-  useTheme
+  useTheme,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -99,7 +99,11 @@ const Header = () => {
           }}
         >
           <IconButton edge="start" sx={{ p: 0 }}>
-            <img src={logo} alt="Logo" style={{ height: "10rem", width: "auto" }} />
+            <img
+              src={logo}
+              alt="Logo"
+              style={{ height: "10rem", width: "auto" }}
+            />
           </IconButton>
           <Typography
             variant="h4"
@@ -109,7 +113,8 @@ const Header = () => {
               fontWeight: 700,
               fontSize: { xs: 24, sm: 32 },
               textAlign: { xs: "center", sm: "left" },
-              mb: { xs: 3, sm: 2 },
+              ml: { xs: 2, sm: 0 },
+              mb: { xs: 2, sm: 0 },
             }}
           >
             Unveiling the World's Wonders Through Captivating Blogs
@@ -124,16 +129,16 @@ const Header = () => {
               >
                 <i className="fas fa-bars"></i>
               </IconButton>
-              <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
+              <Drawer
+                anchor="right"
+                open={drawerOpen}
+                onClose={toggleDrawer(false)}
+              >
                 {drawerItems}
               </Drawer>
             </>
           ) : (
-            <Box
-              display="flex"
-              flexDirection="row"
-              sx={{ gap: 2 }}
-            >
+            <Box display="flex" flexDirection="row" sx={{ gap: 2 }}>
               {isLogin && (
                 <>
                   <Button
