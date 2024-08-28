@@ -44,16 +44,16 @@ const Footer = () => {
             src={logo}
             alt="Logo"
             style={{
-              height: "auto", // Adjust based on aspect ratio
-              width: "100%", // Use a percentage to scale with the container
-              maxHeight: "4rem", // Maximum height for larger screens
-              maxWidth: "4rem", // Maximum width for larger screens
+              height: "auto",
+              width: "100%", 
+              maxHeight: "4rem", 
+              maxWidth: "4rem", 
               "@media (max-width: 600px)": {
-                maxHeight: "2rem", // Adjust size for mobile
+                maxHeight: "2rem", 
                 maxWidth: "2rem",
               },
               "@media (max-width: 400px)": {
-                maxHeight: "1.5rem", // Adjust size for very small screens
+                maxHeight: "1.5rem", 
                 maxWidth: "1.5rem",
               },
             }}
@@ -63,7 +63,7 @@ const Footer = () => {
           sx={{
             display: "flex",
             alignItems: "center",
-            gap: { xs: 1, sm: 2 },
+            gap: { xs: 1, sm: 2,md:4 },
           }}
         >
           <Button
