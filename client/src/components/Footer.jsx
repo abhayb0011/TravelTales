@@ -1,41 +1,11 @@
-import React, { useState } from "react";
-import { Box, AppBar, Toolbar, Button, IconButton, Drawer, List, ListItem, useMediaQuery, useTheme } from "@mui/material";
+import React from "react";
+import { Box, AppBar, Toolbar, Button, IconButton, useMediaQuery, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import logo from "../assets/logoTravelTales.png";
 
 const Footer = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const [drawerOpen, setDrawerOpen] = useState(false);
-
-  const toggleDrawer = (open) => () => {
-    setDrawerOpen(open);
-  };
-
-  const drawerItems = (
-    <Box
-      sx={{ 
-        width: 250, 
-        backgroundColor: "white", // Set background color to white
-        color: "black" // Ensure text color is visible against the white background
-      }}
-      role="presentation"
-      onClick={toggleDrawer(false)}
-      onKeyDown={toggleDrawer(false)}
-    >
-      <List>
-        <ListItem button component={Link} to="/contact">
-          Contact us
-        </ListItem>
-        <ListItem button component={Link} to="/terms">
-          Terms and Conditions
-        </ListItem>
-        <ListItem button component={Link} to="/help">
-          Help
-        </ListItem>
-      </List>
-    </Box>
-  );
 
   return (
     <AppBar position="relative" sx={{ backgroundColor: "#424242", bottom: 0 }}>
@@ -47,72 +17,54 @@ const Footer = () => {
           p: { xs: 2, sm: 3 },
         }}
       >
-        {isMobile ? (
-          <>
-            <IconButton
-              edge="start"
-              sx={{ p: 0, mb: { xs: 2, sm: 0 } }}
-            >
-              <img src={logo} alt="Logo" style={{ height: "3rem", width: "auto" }} />
-            </IconButton>
-            <IconButton
-              sx={{ p: 0, mb: { xs: 2, sm: 0 } }}
-              onClick={toggleDrawer(true)}
-            >
-              <i className="fas fa-bars"></i> 
-            </IconButton>
-            <Drawer
-              anchor="bottom"
-              open={drawerOpen}
-              onClose={toggleDrawer(false)}
-            >
-              {drawerItems}
-            </Drawer>
-          </>
-        ) : (
-          <>
-            <IconButton
-              edge="start"
-              sx={{ p: 0, mb: { xs: 2, sm: 0 } }}
-            >
-              <img src={logo} alt="Logo" style={{ height: "7rem", width: "auto" }} />
-            </IconButton>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: { xs: "column", sm: "row" },
-                alignItems: "center",
-                width: { xs: "100%", sm: "auto" },
-                gap: { xs: 1, sm: 2 },
-              }}
-            >
-              <Button
-                sx={{ color: "white", mb: { xs: 1, sm: 0 } }}
-                variant="contained"
-                component={Link}
-                to="/contact"
-              >
-                Contact us
-              </Button>
-              <Button
-                sx={{ color: "white", mb: { xs: 1, sm: 0 } }}
-                variant="contained"
-                component={Link}
-                to="/terms"
-              >
-                Terms and Conditions
-              </Button>
-              <Button
-                sx={{ color: "white" }}
-                variant="contained"
-                component={Link}
-                to="/help"
-              >
-                Help
-              </Button>
-            </Box>
-          </>
-        )}
+        <IconButton
+          edge="start"
+          sx={{ p: 0, mb: { xs: 2, sm: 0 } }}
+        >
+          <img
+            src={logo}
+            alt="Logo"
+            style={{
+              height: isMobile ? "4rem" : "7rem", // Adjust logo size for small screens
+              width: "auto",
+            }}
+          />
+        </IconButton>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
+            alignItems: "center",
+            width: { xs: "100%", sm: "auto" },
+            gap: { xs: 1, sm: 2 },
+            textAlign: { xs: "center", sm: "left" }
+          }}
+        >
+          <Button
+            sx={{ color: "white", mb: { xs: 1, sm: 0 }, fontSize: { xs: '0.75rem', sm: '1rem' } }} // Adjust button size for small screens
+            variant="contained"
+            component={Link}
+            to="/contact"
+          >
+            Contact us
+          </Button>
+          <Button
+            sx={{ color: "white", mb: { xs: 1, sm: 0 }, fontSize: { xs: '0.75rem', sm: '1rem' } }} // Adjust button size for small screens
+            variant="contained"
+            component={Link}
+            to="/terms"
+          >
+            Terms and Conditions
+          </Button>
+          <Button
+            sx={{ color: "white", fontSize: { xs: '0.75rem', sm: '1rem' } }} // Adjust button size for small screens
+            variant="contained"
+            component={Link}
+            to="/help"
+          >
+            Help
+          </Button>
+        </Box>
       </Toolbar>
     </AppBar>
   );
