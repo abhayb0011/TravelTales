@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, AppBar, Toolbar, Button, IconButton, Drawer, List, ListItem, Divider, useMediaQuery, useTheme } from "@mui/material";
+import { Box, AppBar, Toolbar, Button, IconButton, Drawer, List, ListItem, useMediaQuery, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import logo from "../assets/logoTravelTales.png";
 
@@ -14,7 +14,11 @@ const Footer = () => {
 
   const drawerItems = (
     <Box
-      sx={{ width: 250 }}
+      sx={{ 
+        width: 250, 
+        backgroundColor: "white", // Set background color to white
+        color: "black" // Ensure text color is visible against the white background
+      }}
       role="presentation"
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
@@ -48,9 +52,14 @@ const Footer = () => {
             <IconButton
               edge="start"
               sx={{ p: 0, mb: { xs: 2, sm: 0 } }}
+            >
+              <img src={logo} alt="Logo" style={{ height: "3rem", width: "auto" }} />
+            </IconButton>
+            <IconButton
+              sx={{ p: 0, mb: { xs: 2, sm: 0 } }}
               onClick={toggleDrawer(true)}
             >
-              <i className="fas fa-bars"></i> {/* Ensure Font Awesome is included */}
+              <i className="fas fa-bars"></i> 
             </IconButton>
             <Drawer
               anchor="bottom"
