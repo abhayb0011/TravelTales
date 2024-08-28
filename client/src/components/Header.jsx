@@ -96,7 +96,7 @@ const Header = () => {
             p: 2,
             justifyContent: "space-between",
             gap: { xs: 8, sm: 4 },
-            width: 'auto'
+            width: '100%'
           }}
         >
           <IconButton edge="start" sx={{ p: 0 }}>
