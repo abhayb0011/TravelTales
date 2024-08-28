@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 //for debugging:
 console.log(import.meta.env);
 
-const baseURL = 'https://traveltales-ghsm.onrender.com';
+const baseURL = process.env.VITE_BASE_URL;
 
 const Login = () => {
   const navigate = useNavigate();

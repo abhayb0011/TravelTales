@@ -4,7 +4,7 @@ import BlogCard from "../components/BlogCard";
 import { Box, Typography } from "@mui/material";
 import toast from "react-hot-toast";
 
-const baseURL = 'https://traveltales-ghsm.onrender.com';
+const baseURL = process.env.VITE_BASE_URL;
 
 const UserBlogs = () => {
   const [blogs, setBlogs] = useState([]);

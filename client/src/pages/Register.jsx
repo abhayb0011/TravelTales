@@ -4,7 +4,7 @@ import { Box, Typography, TextField, Button } from "@mui/material";
 import toast from "react-hot-toast";
 import axios from "axios";
 
-const baseURL = 'https://traveltales-ghsm.onrender.com';
+const baseURL = process.env.VITE_BASE_URL;
 
 const Register = () => {
   const navigate = useNavigate();

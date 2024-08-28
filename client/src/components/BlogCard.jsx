@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import axios from 'axios';
 
-const baseURL = 'https://traveltales-ghsm.onrender.com';
+const baseURL = process.env.VITE_BASE_URL;
 
 export default function BlogCard({
   title,
