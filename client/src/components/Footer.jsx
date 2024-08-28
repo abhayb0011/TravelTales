@@ -29,7 +29,6 @@ const Footer = () => {
 
   return (
     <AppBar
-      position={isMobile ? "static" : "sticky"}
       sx={{ backgroundColor: "#424242", bottom: 0 }}
     >
       <Toolbar
