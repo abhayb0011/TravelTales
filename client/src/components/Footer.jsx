@@ -63,7 +63,7 @@ const Footer = () => {
             display: "flex",
             alignItems: "center",
             gap: { xs: 1, sm: 4, md: 20 },
-            mr: { md: 20, xs: 1, sm: 2 },
+            mr: { md: 40, xs: 1, sm: 2 },
           }}
         >
           <Button
