@@ -18,12 +18,10 @@ const Footer = () => {
   };
 
   return (
-    <AppBar position="relative" sx={{ backgroundColor: "#424242", bottom: 0 }}>
+    <AppBar position = {isMobile ? "static" : "sticky"} sx={{ backgroundColor: "#424242", bottom: 0 }}>
       <Toolbar
         sx={{
-          flexDirection: { xs: "column", sm: "row" },
           alignItems: "center",
-          justifyContent: "space-between",
           p: { xs: 2, sm: 3 },
         }}
       >
@@ -47,7 +45,7 @@ const Footer = () => {
               sx={{ p: 0, mb: { xs: 2, sm: 0 } }}
               onClick={handleClick}
             >
-              <i className="fas fa-bars"></i> {/* Ensure Font Awesome is included */}
+              <i className="fas fa-bars"></i> 
             </IconButton>
             <Menu
               anchorEl={anchorEl}
@@ -77,11 +75,11 @@ const Footer = () => {
           <Box
             sx={{
               display: "flex",
-              flexDirection: { xs: "column", sm: "row" },
               alignItems: "center",
               width: { xs: "100%", sm: "auto" },
-              gap: { xs: 1, sm: 2 },
-              textAlign: { xs: "center", sm: "left" }
+              gap: { xs: 2, sm: 4 },
+              textAlign: { xs: "center", sm: "left" },
+              ml: {md: "4",sm: "3",xs: "2"}
             }}
           >
             <Button
