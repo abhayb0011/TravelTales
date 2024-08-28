@@ -92,11 +92,10 @@ const Header = () => {
         <Toolbar
           sx={{
             display: "flex",
-            flexDirection: { xs: "column", sm: "row" },
             alignItems: "center",
             p: 2,
             justifyContent: "space-between",
-            gap: { xs: 4, sm: 2 }
+            gap: { xs: 8, sm: 4 }
           }}
         >
           <IconButton edge="start" sx={{ p: 0 }}>
