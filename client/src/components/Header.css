@@ -1,0 +1,45 @@
+.appBar {
+    background-color: #424242;
+  }
+  
+  .toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logoButton {
+    padding: 0;
+    margin-right: 2rem;
+  }
+  
+  .logo {
+    height: 10rem;
+    width: auto;
+  }
+  
+  .headerTitle {
+    flex-grow: 1;
+    font-family: 'Dancing Script', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+  }
+  
+  .menuIcon {
+    display: none;
+  }
+  
+  @media (max-width: 600px) {
+    .logo {
+      height: 5rem;
+    }
+  
+    .headerTitle {
+      display: none;
+    }
+  
+    .menuIcon {
+      display: block;
+    }
+  }
+  

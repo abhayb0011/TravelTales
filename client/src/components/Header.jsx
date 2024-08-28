@@ -6,26 +6,27 @@ import {
   Toolbar,
   Button,
   Typography,
-  Tabs,
-  Tab,
   IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { authActions } from "../redux/store";
 import toast from "react-hot-toast";
+import MenuIcon from "@mui/icons-material/Menu";
 import logo from "../assets/logoTravelTales.png";
+import "./header.css";
 
 const Header = () => {
-  // global state
   const isLogin =
     useSelector((state) => state.isLogin) || localStorage.getItem("userId");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // state
-  const [value, setValue] = useState(null);
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
-  // logout
   const handleLogout = () => {
     try {
       dispatch(authActions.logout());
@@ -37,90 +38,75 @@ const Header = () => {
     }
   };
 
+  const toggleDrawer = (open) => (event) => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+    setDrawerOpen(open);
+  };
+
+  //I have created a drawer here because if screen size is less then header will not be fully displayed
+  const drawerItems = (
+    <List>
+      {isLogin ? (
+        <>
+          <ListItem Button component={Link} to="/blogs">
+            <ListItemText primary="Blogs" />
+          </ListItem>
+          <ListItem Button component={Link} to="/my-blogs">
+            <ListItemText primary="My Blogs" />
+          </ListItem>
+          <ListItem Button component={Link} to="/create-blog">
+            <ListItemText primary="Create Blog" />
+          </ListItem>
+          <ListItem Button onClick={handleLogout}>
+            <ListItemText primary="Logout" />
+          </ListItem>
+        </>
+      ) : (
+        <>
+          <ListItem Button component={Link} to="/login">
+            <ListItemText primary="Login" />
+          </ListItem>
+          <ListItem Button component={Link} to="/register">
+            <ListItemText primary="Register" />
+          </ListItem>
+        </>
+      )}
+    </List>
+  );
+
   return (
     <>
-      <AppBar position="sticky" style={{ backgroundColor: "#424242" }}>
-        <Toolbar>
-          <IconButton edge="start" sx={{ p: 0, mr: 10 }}>
-            <img
-              src={logo}
-              alt="Logo"
-              style={{
-                height: "10rem",
-                width: "auto",
-              }}
-            />
+      <AppBar position="sticky" className="appBar">
+        <Toolbar className="toolbar">
+          <IconButton edge="start" className="logoButton" component={Link} to="/">
+            <img src={logo} alt="Logo" className="logo" />
           </IconButton>
-          <Typography
-            variant="h4"
-            sx={{
-              flexGrow: 1,
-              fontFamily: "Dancing Script, Arial",
-              fontWeight: 700,
-              fontSize: 32,
-            }}
-          >
+          <Typography variant="h5" className="headerTitle">
             Unveiling the World's Wonders Through Captivating Blogs
           </Typography>
-          {isLogin && (
-            <Box display={"flex"} marginLeft="auto" marginRight={"auto"}>
-              <Button
-                sx={{ margin: 1, color: "white" }}
-                variant="contained"
-                component={Link}
-                to="/blogs"
-              >
-                Blogs
-              </Button>
-              <Button
-                sx={{ margin: 1, color: "white" }}
-                variant="contained"
-                component={Link}
-                to="/my-blogs"
-              >
-                My Blogs
-              </Button>
-              <Button
-                sx={{ margin: 1, color: "white" }}
-                variant="contained"
-                component={Link}
-                to="/create-blog"
-              >
-                Create Blog
-              </Button>
+          <IconButton
+            color="inherit"
+            edge="end"
+            onClick={toggleDrawer(true)}
+            className="menuIcon"
+          >
+            <MenuIcon />
+          </IconButton>
+          <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
+            <Box
+              sx={{ width: 250 }}
+              role="presentation"
+              onClick={toggleDrawer(false)}
+              onKeyDown={toggleDrawer(false)}
+            >
+              {drawerItems}
             </Box>
-          )}
-          <Box display={"flex"} marginLeft="auto">
-            {!isLogin && (
-              <>
-                <Button
-                  sx={{ margin: 1, color: "white" }}
-                  variant="contained"
-                  component={Link}
-                  to="/login"
-                >
-                  Login
-                </Button>
-                <Button
-                  sx={{ margin: 1, color: "white" }}
-                  component={Link}
-                  variant="contained"
-                  to="/register"
-                >
-                  Register
-                </Button>
-              </>
-            )}
-            {isLogin && (
-              <Button
-                onClick={handleLogout}
-                variant="contained"
-                sx={{ margin: 1, color: "white" }}
-              >
-                Logout
-              </Button>
-            )}
-          </Box>
+          </Drawer>
         </Toolbar>
       </AppBar>
     </>
