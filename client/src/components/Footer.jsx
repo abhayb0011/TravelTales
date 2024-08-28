@@ -36,7 +36,7 @@ const Footer = () => {
             src={logo}
             alt="Logo"
             style={{
-              height: isMobile ? "1 rem" : "2rem",  
+              height: { xs: 1, sm: 2 },  
               width: "auto",
             }}
           />
