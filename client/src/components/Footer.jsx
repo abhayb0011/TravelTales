@@ -28,8 +28,7 @@ const Footer = () => {
   };
 
   return (
-    <AppBar position="relative" sx={{ backgroundColor: "#424242", bottom: 0 }}
-    >
+    <AppBar position="relative" sx={{ backgroundColor: "#424242", bottom: 0 }}>
       <Toolbar
         sx={{
           alignItems: "center",
@@ -45,15 +44,15 @@ const Footer = () => {
             alt="Logo"
             style={{
               height: "auto",
-              width: "100%", 
-              maxHeight: "4rem", 
-              maxWidth: "4rem", 
+              width: "100%",
+              maxHeight: "4rem",
+              maxWidth: "4rem",
               "@media (max-width: 600px)": {
-                maxHeight: "2rem", 
+                maxHeight: "2rem",
                 maxWidth: "2rem",
               },
               "@media (max-width: 400px)": {
-                maxHeight: "1.5rem", 
+                maxHeight: "1.5rem",
                 maxWidth: "1.5rem",
               },
             }}
@@ -63,7 +62,8 @@ const Footer = () => {
           sx={{
             display: "flex",
             alignItems: "center",
-            gap: { xs: 1, sm: 4,md:20 },
+            gap: { xs: 1, sm: 4, md: 20 },
+            mr: { md: 20, xs: 1, sm: 2 },
           }}
         >
           <Button
