@@ -97,7 +97,7 @@ const Header = () => {
             justifyContent: "space-between"
           }}
         >
-          <IconButton edge="start" sx={{ p: 0, mr:'2px'}}>
+          <IconButton edge="start" sx={{ p: 0}}>
             <img
               src={logo}
               alt="Logo"
@@ -113,6 +113,7 @@ const Header = () => {
               fontSize: { xs: 24, sm: 32 },
               textAlign: { xs: "center", sm: "left" },
               mb: { xs: 2, sm: 0 },
+              ml:'2px'
             }}
           >
             Unveiling the World's Wonders Through Captivating Blogs
