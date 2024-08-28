@@ -97,11 +97,11 @@ const Header = () => {
             justifyContent: "space-between"
           }}
         >
-          <IconButton edge="start" sx={{ p: 0 }}>
+          <IconButton edge="start" sx={{ p: 0, mr:'2px'}}>
             <img
               src={logo}
               alt="Logo"
-              style={{ height: "7rem", width: "auto",marginRight:'2px' }}
+              style={{ height: "7rem", width: "auto" }}
             />
           </IconButton>
           <Typography
