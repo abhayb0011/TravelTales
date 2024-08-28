@@ -127,7 +127,7 @@ const Header = () => {
                 onClick={toggleDrawer(true)}
                 sx={{ ml: 2 }}
               >
-                <i className="fas fa-bars"></i> {/* Ensure Font Awesome is included */}
+                <i className="fas fa-bars"></i> 
               </IconButton>
               <Drawer
                 anchor="right"
