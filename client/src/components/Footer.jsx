@@ -36,8 +36,8 @@ const Footer = () => {
             src={logo}
             alt="Logo"
             style={{
-              height: {xs:1, sm:2} ,  
-              width: {xs:1, sm:2},
+              height: {xs:1, sm:2, md:4} ,  
+              width: {xs:1, sm:2, md:4},
             }}
           />
         </IconButton>
