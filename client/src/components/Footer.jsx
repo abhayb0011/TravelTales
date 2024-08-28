@@ -35,7 +35,7 @@ const Footer = () => {
           p: { xs: 1, sm: 2 },
           display: "flex",
           justifyContent: "space-between",
-          gap: {xs:1,sm:2},
+          gap: { xs: 1, sm: 2 },
         }}
       >
         <IconButton edge="start" sx={{ p: 0 }}>
@@ -67,7 +67,11 @@ const Footer = () => {
           }}
         >
           <Button
-            sx={{ color: "white", fontSize: { xs: "0.65rem", sm: "0.85rem" } }}
+            sx={{
+              color: "white",
+              fontSize: { xs: "0.65rem", sm: "0.85rem" },
+              height: { xs: "3rem" },
+            }}
             variant="contained"
             component={Link}
             to="/contact"
@@ -75,7 +79,11 @@ const Footer = () => {
             Contact us
           </Button>
           <Button
-            sx={{ color: "white", fontSize: { xs: "0.65rem", sm: "0.85rem" } }}
+            sx={{
+              color: "white",
+              fontSize: { xs: "0.65rem", sm: "0.85rem" },
+              height: { xs: "3rem" },
+            }}
             variant="contained"
             component={Link}
             to="/terms"
@@ -83,7 +91,11 @@ const Footer = () => {
             Terms and Conditions
           </Button>
           <Button
-            sx={{ color: "white", fontSize: { xs: "0.65rem", sm: "0.85rem" }, height: {xs:"3rem"} }}
+            sx={{
+              color: "white",
+              fontSize: { xs: "0.65rem", sm: "0.85rem" },
+              height: { xs: "3rem" },
+            }}
             variant="contained"
             component={Link}
             to="/help"
