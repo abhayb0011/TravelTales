@@ -1,5 +1,15 @@
 import React, { useState } from "react";
-import { Box, AppBar, Toolbar, Button, IconButton, Menu, MenuItem, useMediaQuery, useTheme } from "@mui/material";
+import {
+  Box,
+  AppBar,
+  Toolbar,
+  Button,
+  IconButton,
+  Menu,
+  MenuItem,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import { Link } from "react-router-dom";
 import logo from "../assets/logoTravelTales.png";
 
@@ -18,61 +28,71 @@ const Footer = () => {
   };
 
   return (
-    <AppBar position={isMobile ? "static" : "sticky"} sx={{ backgroundColor: "#424242", bottom: 0 }}>
+    <AppBar
+      position={isMobile ? "static" : "sticky"}
+      sx={{ backgroundColor: "#424242", bottom: 0 }}
+    >
       <Toolbar
         sx={{
           alignItems: "center",
           p: { xs: 1, sm: 2 },
           display: "flex",
           justifyContent: "space-between",
-          gap: isMobile ? "1 rem" : "2rem"
+          gap: isMobile ? "1 rem" : "2rem",
         }}
       >
-        <IconButton
-          edge="start"
-          sx={{ p: 0 }}
-        >
+        <IconButton edge="start" sx={{ p: 0 }}>
           <img
             src={logo}
             alt="Logo"
             style={{
-              height: {xs:1, sm:2, md:4} ,  
-              width: {xs:1, sm:2, md:4},
+              height: "auto", // Adjust based on aspect ratio
+              width: "100%", // Use a percentage to scale with the container
+              maxHeight: "4rem", // Maximum height for larger screens
+              maxWidth: "4rem", // Maximum width for larger screens
+              "@media (max-width: 600px)": {
+                maxHeight: "2rem", // Adjust size for mobile
+                maxWidth: "2rem",
+              },
+              "@media (max-width: 400px)": {
+                maxHeight: "1.5rem", // Adjust size for very small screens
+                maxWidth: "1.5rem",
+              },
             }}
           />
         </IconButton>
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              gap: { xs: 1, sm: 2 }, 
-            }}
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: { xs: 1, sm: 2 },
+          }}
+        >
+          <Button
+            sx={{ color: "white", fontSize: { xs: "0.65rem", sm: "0.85rem" } }}
+            variant="contained"
+            component={Link}
+            to="/contact"
           >
-            <Button
-              sx={{ color: "white", fontSize: { xs: '0.65rem', sm: '0.85rem' } }}  
-              variant="contained"
-              component={Link}
-              to="/contact"
-            >
-              Contact us
-            </Button>
-            <Button
-              sx={{ color: "white", fontSize: { xs: '0.65rem', sm: '0.85rem' } }} 
-              variant="contained"
-              component={Link}
-              to="/terms"
-            >
-              Terms and Conditions
-            </Button>
-            <Button
-              sx={{ color: "white", fontSize: { xs: '0.65rem', sm: '0.85rem' } }}  
-              variant="contained"
-              component={Link}
-              to="/help"
-            >
-              Help
-            </Button>
-          </Box>
+            Contact us
+          </Button>
+          <Button
+            sx={{ color: "white", fontSize: { xs: "0.65rem", sm: "0.85rem" } }}
+            variant="contained"
+            component={Link}
+            to="/terms"
+          >
+            Terms and Conditions
+          </Button>
+          <Button
+            sx={{ color: "white", fontSize: { xs: "0.65rem", sm: "0.85rem" } }}
+            variant="contained"
+            component={Link}
+            to="/help"
+          >
+            Help
+          </Button>
+        </Box>
       </Toolbar>
     </AppBar>
   );
