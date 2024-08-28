@@ -96,6 +96,7 @@ const Header = () => {
             alignItems: "center",
             p: 2,
             justifyContent: "space-between",
+            gap: { xs: 4, sm: 2 }
           }}
         >
           <IconButton edge="start" sx={{ p: 0 }}>
@@ -113,7 +114,6 @@ const Header = () => {
               fontWeight: 700,
               fontSize: { xs: 24, sm: 32 },
               textAlign: { xs: "center", sm: "left" },
-              ml: { xs: 2, sm: 0 },
               mb: { xs: 2, sm: 0 },
             }}
           >
