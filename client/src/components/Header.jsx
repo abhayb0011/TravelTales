@@ -54,13 +54,13 @@ const Header = () => {
       <List>
         {isLogin && (
           <>
-            <ListItem button component={Link} to="/blogs">
+            <ListItem Button component={Link} to="/blogs">
               Blogs
             </ListItem>
-            <ListItem button component={Link} to="/my-blogs">
+            <ListItem Button component={Link} to="/my-blogs">
               My Blogs
             </ListItem>
-            <ListItem button component={Link} to="/create-blog">
+            <ListItem Button component={Link} to="/create-blog">
               Create Blog
             </ListItem>
             <Divider />
