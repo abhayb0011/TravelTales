@@ -1,6 +1,6 @@
 {
   "name": "client",
-  "proxy": "https://traveltales-ghsm.onrender.com",
+  "proxy": "https://localhost:8080",
   "private": true,
   "version": "0.0.0",
   "type": "module",

@@ -2,18 +2,18 @@ import React from "react";
 import { Box, AppBar, Toolbar, Button, IconButton } from "@mui/material";
 import { Link } from "react-router-dom";
 import logo from "../assets/logoTravelTales.png";
-import "./Footer.css";
+import "./footer.css";
 
 const Footer = () => {
   return (
-    <AppBar position="relative" className="footer">
+    <AppBar position="relative" className="footerAppBar">
       <Toolbar className="footerToolbar">
         <IconButton edge="start" className="footerLogoButton">
           <img src={logo} alt="Logo" className="footerLogo" />
         </IconButton>
         <Box className="footerLinks">
           <Button
-            className="footerButton"
+            sx={{ color: "white" }}
             variant="contained"
             component={Link}
             to="/contact"
@@ -21,7 +21,7 @@ const Footer = () => {
             Contact us
           </Button>
           <Button
-            className="footerButton"
+            sx={{ color: "white" }}
             variant="contained"
             component={Link}
             to="/terms"
@@ -29,7 +29,7 @@ const Footer = () => {
             Terms and Conditions
           </Button>
           <Button
-            className="footerButton"
+            sx={{ color: "white" }}
             variant="contained"
             component={Link}
             to="/help"

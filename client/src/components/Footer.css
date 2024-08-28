@@ -1,12 +1,12 @@
-.footer {
+.footerAppBar {
     background-color: #424242;
-    bottom: 0;
   }
   
   .footerToolbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 2rem;
   }
   
   .footerLogoButton {
@@ -22,30 +22,28 @@
   .footerLinks {
     display: flex;
     flex-grow: 1;
-    align-items: center;
     justify-content: space-evenly;
   }
   
-  .footerButton {
-    color: white;
-  }
-  
-  @media (max-width: 600px) {
+  @media (max-width: 900px) {
     .footerToolbar {
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
+      padding: 1rem;
     }
   
-    .footerLogo {
-      height: 5rem;
+    .footerLogoButton {
       margin-bottom: 1rem;
     }
   
     .footerLinks {
       flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
     }
   
-    .footerButton {
+    .footerLinks Button {
+      width: 100%;
       margin-bottom: 0.5rem;
     }
   }
