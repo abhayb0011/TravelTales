@@ -18,7 +18,7 @@ const Footer = () => {
   };
 
   return (
-    <AppBar position = {isMobile ? "fixed" : "sticky"} sx={{ backgroundColor: "#424242", bottom: 0 }}>
+    <AppBar position = {isMobile ? "relative" : "sticky"} sx={{ backgroundColor: "#424242", bottom: 0 }}>
       <Toolbar
         sx={{
           flexDirection: { xs: "column", sm: "row" },
