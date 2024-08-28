@@ -40,49 +40,15 @@ const Footer = () => {
             }}
           />
         </IconButton>
-        {isMobile ? (
-          <>
-            <IconButton
-              edge="end"
-              sx={{ p: 0, mb: { xs: 1, sm: 0 } }}
-              onClick={handleClick}
-            >
-              <i className="fas fa-bars"></i>
-            </IconButton>
-            <Menu
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-            >
-              <MenuItem onClick={handleClose} component={Link} to="/contact">
-                Contact us
-              </MenuItem>
-              <MenuItem onClick={handleClose} component={Link} to="/terms">
-                Terms and Conditions
-              </MenuItem>
-              <MenuItem onClick={handleClose} component={Link} to="/help">
-                Help
-              </MenuItem>
-            </Menu>
-          </>
-        ) : (
           <Box
             sx={{
               display: "flex",
               alignItems: "center",
-              gap: { xs: 1, sm: 2 },  // Adjusted gap between buttons
+              gap: { xs: 1, sm: 2 }, 
             }}
           >
             <Button
-              sx={{ color: "white", fontSize: { xs: '0.65rem', sm: '0.85rem' } }}  // Reduced button size
+              sx={{ color: "white", fontSize: { xs: '0.65rem', sm: '0.85rem' } }}  
               variant="contained"
               component={Link}
               to="/contact"
@@ -90,7 +56,7 @@ const Footer = () => {
               Contact us
             </Button>
             <Button
-              sx={{ color: "white", fontSize: { xs: '0.65rem', sm: '0.85rem' } }}  // Reduced button size
+              sx={{ color: "white", fontSize: { xs: '0.65rem', sm: '0.85rem' } }} 
               variant="contained"
               component={Link}
               to="/terms"
@@ -98,7 +64,7 @@ const Footer = () => {
               Terms and Conditions
             </Button>
             <Button
-              sx={{ color: "white", fontSize: { xs: '0.65rem', sm: '0.85rem' } }}  // Reduced button size
+              sx={{ color: "white", fontSize: { xs: '0.65rem', sm: '0.85rem' } }}  
               variant="contained"
               component={Link}
               to="/help"
@@ -106,7 +72,6 @@ const Footer = () => {
               Help
             </Button>
           </Box>
-        )}
       </Toolbar>
     </AppBar>
   );
