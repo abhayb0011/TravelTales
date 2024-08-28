@@ -109,7 +109,7 @@ const Header = () => {
               fontWeight: 700,
               fontSize: { xs: 24, sm: 32 },
               textAlign: { xs: "center", sm: "left" },
-              mb: { xs: 2, sm: 0 },
+              mb: { xs: 3, sm: 2 },
             }}
           >
             Unveiling the World's Wonders Through Captivating Blogs
