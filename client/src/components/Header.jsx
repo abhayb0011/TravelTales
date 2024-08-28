@@ -18,7 +18,7 @@ import { authActions } from "../redux/store";
 import toast from "react-hot-toast";
 import MenuIcon from "@mui/icons-material/Menu";
 import logo from "../assets/logoTravelTales.png";
-import "./header.css";
+import "./Header.css";
 
 const Header = () => {
   const isLogin =

@@ -2,7 +2,7 @@ import React from "react";
 import { Box, AppBar, Toolbar, Button, IconButton } from "@mui/material";
 import { Link } from "react-router-dom";
 import logo from "../assets/logoTravelTales.png";
-import "./footer.css";
+import "./Footer.css";
 
 const Footer = () => {
   return (
