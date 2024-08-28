@@ -18,7 +18,7 @@ const Footer = () => {
   };
 
   return (
-    <AppBar position="relative" sx={{ backgroundColor: "#424242", bottom: 0 }}>
+    <AppBar position = {isMobile ? "absolute" : "sticky"} sx={{ backgroundColor: "#424242", bottom: 0 }}>
       <Toolbar
         sx={{
           flexDirection: { xs: "column", sm: "row" },
@@ -35,7 +35,7 @@ const Footer = () => {
             src={logo}
             alt="Logo"
             style={{
-              height: isMobile ? "4rem" : "7rem", // Adjust logo size for small screens
+              height: isMobile ? "2rem" : "5rem",
               width: "auto",
             }}
           />
