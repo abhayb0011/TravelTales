@@ -46,7 +46,7 @@ const UserBlogs = () => {
           <BlogCard
             key={blog._id}
             id={blog._id}
-            isUser={localStorage.getItem("userId") === blog.user._id}
+            isUser={true}
             title={blog.title}
             description={blog.description}
             image={blog.image}
