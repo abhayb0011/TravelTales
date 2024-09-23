@@ -5,6 +5,7 @@ import { Box, Typography } from "@mui/material";
 import toast from "react-hot-toast";
 
 const baseURL = import.meta.env.VITE_BASE_URL;
+let nameUser;
 
 const UserBlogs = () => {
   const [blogs, setBlogs] = useState([]);
@@ -18,6 +19,7 @@ const UserBlogs = () => {
       const { data } = await axios.get(`${baseURL}/api/v1/blog/user-blog/${id}`);
       if (data?.success) {
         setBlogs(data?.userBlog.blogs);
+        nameUser=data.userBlog.username;
       }
     } catch (error) {
       console.log(error);
@@ -50,7 +52,7 @@ const UserBlogs = () => {
             title={blog.title}
             description={blog.description}
             image={blog.image}
-            username={blog.user.username}
+            username={nameUser}
             time={blog.createdAt}
           />
         ))
