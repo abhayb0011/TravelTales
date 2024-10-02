@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import BlogCard from "../components/BlogCard";
 import { Box, Typography } from "@mui/material";
-import toast from "react-hot-toast";
 
 const baseURL = import.meta.env.VITE_BASE_URL;
 let nameUser;
@@ -21,7 +20,6 @@ const UserBlogs = () => {
       }
     } catch (error) {
       console.log(error);
-      toast.error("Not able to create blog. Please try again");
     }
   };
 
@@ -31,11 +29,8 @@ const UserBlogs = () => {
 
   return (
     <Box>
-      {error ? (
-        <Typography variant="h6" color="error" align="center">
-          {error}
-        </Typography>
-      ) : blogs.length > 0 ? (
+      {
+        blogs.length > 0 ? (
         blogs.map((blog) => (
           <BlogCard
             key={blog._id}
