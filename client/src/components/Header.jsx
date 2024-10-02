@@ -11,6 +11,8 @@ import {
   List,
   ListItem,
   Divider,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -19,16 +21,19 @@ import toast from "react-hot-toast";
 import logo from "../assets/logoTravelTales.png";
 
 const Header = () => {
-  const isLogin =
-    useSelector((state) => state.isLogin) || localStorage.getItem("userId");  //value of isLogin from global state and userId taken from browser local's storage 
-    const dispatch = useDispatch();                                           //to dispatch(make changes) to global state
-    const navigate = useNavigate();                                           //to navigate between routes
+  const isLogin = 
+    useSelector((state) => state.isLogin) || localStorage.getItem("userId"); //value of isLogin from global state and userId taken from browser local's storage
+  const dispatch = useDispatch(); //to dispatch(make changes) to global state
+  const navigate = useNavigate(); //to navigate between routes
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   const handleLogout = () => {
     try {
-      dispatch(authActions.logout());                                        
+      dispatch(authActions.logout());
       toast.success("Logout Successfully");
-      navigate("/login");                                                     //to navigate to login route 
+      navigate("/login");     //to navigate to login route 
       localStorage.clear();
     } catch (error) {
       console.log(error);
@@ -63,17 +68,17 @@ const Header = () => {
         )}
         {!isLogin && (
           <>
-            <ListItem Button component={Link} to="/login">
+            <ListItem button component={Link} to="/login">
               Login
             </ListItem>
-            <ListItem Button component={Link} to="/register">
+            <ListItem button component={Link} to="/register">
               Register
             </ListItem>
             <Divider />
           </>
         )}
         {isLogin && (
-          <ListItem Button onClick={handleLogout}>
+          <ListItem button onClick={handleLogout}>
             Logout
           </ListItem>
         )}

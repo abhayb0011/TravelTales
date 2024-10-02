@@ -1,32 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Box,
   AppBar,
   Toolbar,
   Button,
   IconButton,
-  Menu,
-  MenuItem,
-  useMediaQuery,
-  useTheme,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import logo from "../assets/logoTravelTales.png";
 
 const Footer = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
   return (
     <AppBar position="relative" sx={{ backgroundColor: "#424242", bottom: 0 }}>
       <Toolbar
