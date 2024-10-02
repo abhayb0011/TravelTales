@@ -1,5 +1,5 @@
 const userModel = require("../models/userModel");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcrypt"); //for hasing the password 
 //create user register user
 exports.registerController = async (req, res) => {
   try {
@@ -82,7 +82,7 @@ exports.loginController = async (req, res) => {
     if (!isMatch) {
       return res.status(401).send({
         success: false,
-        message: "Invlid username or password",
+        message: "Invalid username or password",
       });
     }
     return res.status(200).send({

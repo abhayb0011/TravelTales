@@ -10,7 +10,7 @@ import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Box, IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
+import toast from "react-hot-toast";             //for displaying notifications
 import axios from "axios";
 
 export default function BlogCard({
@@ -63,7 +63,7 @@ export default function BlogCard({
         </Box>
       </Box>
 
-      {isUser && (
+      {isUser && (                                                         //We will show edit and delete icons only if user is logged in 
         <Box display="flex" alignItems="center">
           <IconButton onClick={handleEdit} sx={{ marginLeft: 1 }}>
             <ModeEditIcon color="info" />

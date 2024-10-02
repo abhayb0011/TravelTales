@@ -6,8 +6,6 @@ import {
   Toolbar,
   Button,
   Typography,
-  Tabs,
-  Tab,
   IconButton,
 } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -19,18 +17,16 @@ import logo from "../assets/logoTravelTales.png";
 const Header = () => {
   // global state
   const isLogin =
-    useSelector((state) => state.isLogin) || localStorage.getItem("userId");
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  // state
-  const [value, setValue] = useState(null);
+    useSelector((state) => state.isLogin) || localStorage.getItem("userId");  //value of isLogin from global state and userId taken from browser local's storage 
+  const dispatch = useDispatch();                                             //to dispatch(make changes) to global state
+  const navigate = useNavigate();                                             //to navigate between routes
 
   // logout
   const handleLogout = () => {
     try {
-      dispatch(authActions.logout());
+      dispatch(authActions.logout());                                        
       toast.success("Logout Successfully");
-      navigate("/login");
+      navigate("/login");                                                     //to navigate to login route 
       localStorage.clear();
     } catch (error) {
       console.log(error);

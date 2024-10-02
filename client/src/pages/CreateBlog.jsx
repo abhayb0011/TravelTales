@@ -18,7 +18,7 @@ const CreateBlog = () => {
       [e.target.name]: e.target.value,
     }));
   };
-  //form
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

@@ -5,7 +5,9 @@ const userModel = require("../models/userModel");
 //GET ALL BLOGS
 exports.getAllBlogsController = async (req, res) => {
   try {
-    const blogs = await blogModel.find({}).populate("user");
+    const blogs = await blogModel.find({}).populate("user"); /*  populate("user") :Replaces the user field in each blog document with the 
+                                                                 corresponding user document from the users collection (populate is used for 
+                                                                 referencing documents from other collection)*/
     if (!blogs) {
       return res.status(200).send({
         success: false,
@@ -49,12 +51,12 @@ exports.createBlogController = async (req, res) => {
     }
 
     const newBlog = new blogModel({ title, description, image, user });
-    const session = await mongoose.startSession();
-    session.startTransaction();
-    await newBlog.save({ session });
-    exisitingUser.blogs.push(newBlog);
-    await exisitingUser.save({ session });
-    await session.commitTransaction();
+    const session = await mongoose.startSession(); //to create new mongoDB session and sessions are essential for performing transactions
+    session.startTransaction();    //Transactions: Ensures that in series of operations either all succeed or fail 
+    await newBlog.save({ session }); //saves newblog to database
+    exisitingUser.blogs.push(newBlog); //adds newblog to existingUser's blog array
+    await exisitingUser.save({ session }); //saves updated existingUser to database
+    await session.commitTransaction();  //finalizes transaction making all operations within it permanent in database
     await newBlog.save();
     return res.status(201).send({
       success: true,
@@ -126,7 +128,6 @@ exports.getBlogByIdController = async (req, res) => {
 exports.deleteBlogController = async (req, res) => {
   try {
     const blog = await blogModel
-      // .findOneAndDelete(req.params.id)
       .findByIdAndDelete(req.params.id)
       .populate("user");
     await blog.user.blogs.pull(blog);

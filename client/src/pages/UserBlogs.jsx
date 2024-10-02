@@ -27,7 +27,9 @@ const UserBlogs = () => {
         blogs.map((blog) => (
           <BlogCard
             id={blog._id}
-            isUser={true}
+            isUser={true}   /*In blogs page we are checking if (localStorage.id == blog.user.id) but here we are directly assigining true because my 
+                            blogs icon will be only visible to logged users only while blogs which is root path will be visible to all loggedIn as 
+                            well as loggedOut users */
             title={blog.title}
             description={blog.description}
             image={blog.image}

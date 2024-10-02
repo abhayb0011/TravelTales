@@ -16,7 +16,8 @@ const Blogs = () => {
   };
   useEffect(() => {
     getAllBlogs();
-  }, []);
+  }, []);   //Empty dependency array [] in useEffect() hook means getAllBlogs() will be called only when blogs gets mounted (means when it is rendered first time)
+            //It will not rerun until blogs is component is mounted again and again  
   return (
     <div>
       {blogs &&

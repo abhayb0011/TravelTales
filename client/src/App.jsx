@@ -23,7 +23,7 @@ function App() {
     >
       <Header />
       <Box component="main" flex={1} py={2} pb={2}>
-        <Toaster />
+        <Toaster />             {/* For showing notifications */}
         <Routes>
           <Route path="/" element={<Blogs />} />
           <Route path="/blogs" element={<Blogs />} />
