@@ -25,7 +25,8 @@ const UserBlogs = () => {
 
   useEffect(() => {
     getUserBlogs();
-  });
+  });  /*Default behaviour of useEffect is there because dependency we are not passing. So now, getAllBlogs() will be called every time the page 
+       userBlogs renders*/
 
   return (
     <Box>

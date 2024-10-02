@@ -25,8 +25,8 @@ const Header = () => {
     useSelector((state) => state.isLogin) || localStorage.getItem("userId"); //value of isLogin from global state and userId taken from browser local's storage
   const dispatch = useDispatch(); //to dispatch(make changes) to global state
   const navigate = useNavigate(); //to navigate between routes
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const theme = useTheme();  //theme object ,defined in material UI, contains various properties like breakpoints 
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm")); //if viewport width smaller than sm then isMobile will be true
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const handleLogout = () => {
