@@ -24,7 +24,7 @@ exports.getAllBlogsController = async (req, res) => {
     console.log(error);
     return res.status(500).send({
       success: false,
-      message: "Error WHile Getting Blogs",
+      message: "Error While Getting Blogs",
       error,
     });
   }
@@ -38,7 +38,7 @@ exports.createBlogController = async (req, res) => {
     if (!title || !description || !image || !user) {
       return res.status(400).send({
         success: false,
-        message: "Please Provide ALl Fields",
+        message: "Please Provide All Fields",
       });
     }
     const exisitingUser = await userModel.findById(user);
@@ -57,7 +57,6 @@ exports.createBlogController = async (req, res) => {
     exisitingUser.blogs.push(newBlog); //adds newblog to existingUser's blog array
     await exisitingUser.save({ session }); //saves updated existingUser to database
     await session.commitTransaction();  //finalizes transaction making all operations within it permanent in database
-    await newBlog.save();
     return res.status(201).send({
       success: true,
       message: "Blog Created!",
@@ -67,7 +66,7 @@ exports.createBlogController = async (req, res) => {
     console.log(error);
     return res.status(400).send({
       success: false,
-      message: "Error WHile Creting blog",
+      message: "Error While Creating blog",
       error,
     });
   }
@@ -92,7 +91,7 @@ exports.updateBlogController = async (req, res) => {
     console.log(error);
     return res.status(400).send({
       success: false,
-      message: "Error WHile Updating Blog",
+      message: "Error While Updating Blog",
       error,
     });
   }
