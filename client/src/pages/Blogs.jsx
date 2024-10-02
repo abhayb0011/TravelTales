@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useFocusEffect } from "react";
 import axios from "axios";
 import BlogCard from "../components/BlogCard";
 
@@ -19,10 +19,9 @@ const Blogs = () => {
     }
   };
 
-  useEffect(() => {
+  useFocusEffect(() => {
     getAllBlogs();
-  }, []);   /*Empty dependency array [] in useEffect() hook means getAllBlogs() will be called only when blogs gets mounted (means when it is rendered first time)
-            It will not rerun until blogs is component is mounted again and again*/  
+  });   /*      */  
   return (
     <div>
       {blogs &&
