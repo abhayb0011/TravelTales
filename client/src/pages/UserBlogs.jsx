@@ -9,8 +9,6 @@ let nameUser;
 
 const UserBlogs = () => {
   const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   // Get user blogs
   const getUserBlogs = async () => {
@@ -23,19 +21,13 @@ const UserBlogs = () => {
       }
     } catch (error) {
       console.log(error);
-      setError("Failed to fetch blogs. Please try again.");
-    } finally {
-      setLoading(false);
+      toast.error("Not able to create blog. Please try again");
     }
   };
 
   useEffect(() => {
     getUserBlogs();
   }, []);
-
-  if (loading) {
-    return <Typography variant="h6" align="center">Loading...</Typography>;
-  }
 
   return (
     <Box>

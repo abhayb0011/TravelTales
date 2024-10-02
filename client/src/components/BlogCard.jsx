@@ -12,6 +12,8 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";             //for displaying notifications
 import axios from "axios";
 
+const baseURL = import.meta.env.VITE_BASE_URL;
+
 export default function BlogCard({
   title,
   description,
