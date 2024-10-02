@@ -11,8 +11,6 @@ import {
   List,
   ListItem,
   Divider,
-  useMediaQuery,
-  useTheme,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -22,18 +20,9 @@ import logo from "../assets/logoTravelTales.png";
 
 const Header = () => {
   const isLogin =
-<<<<<<< HEAD
     useSelector((state) => state.isLogin) || localStorage.getItem("userId");  //value of isLogin from global state and userId taken from browser local's storage 
-  const dispatch = useDispatch();                                             //to dispatch(make changes) to global state
-  const navigate = useNavigate();                                             //to navigate between routes
-=======
-    useSelector((state) => state.isLogin) || localStorage.getItem("userId");
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const [drawerOpen, setDrawerOpen] = useState(false);
->>>>>>> d4247ae4db9b56740ae1effe3b5262515253c4c8
+    const dispatch = useDispatch();                                           //to dispatch(make changes) to global state
+    const navigate = useNavigate();                                           //to navigate between routes
 
   const handleLogout = () => {
     try {
@@ -74,17 +63,17 @@ const Header = () => {
         )}
         {!isLogin && (
           <>
-            <ListItem button component={Link} to="/login">
+            <ListItem Button component={Link} to="/login">
               Login
             </ListItem>
-            <ListItem button component={Link} to="/register">
+            <ListItem Button component={Link} to="/register">
               Register
             </ListItem>
             <Divider />
           </>
         )}
         {isLogin && (
-          <ListItem button onClick={handleLogout}>
+          <ListItem Button onClick={handleLogout}>
             Logout
           </ListItem>
         )}

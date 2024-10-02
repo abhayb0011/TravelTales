@@ -22,12 +22,8 @@ const CreateBlog = () => {
       [e.target.name]: e.target.value,
     }));
   };
-<<<<<<< HEAD
-  
-=======
 
   // Form submission handler
->>>>>>> d4247ae4db9b56740ae1effe3b5262515253c4c8
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

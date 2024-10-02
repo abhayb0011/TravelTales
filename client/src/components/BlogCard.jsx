@@ -9,15 +9,8 @@ import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Box, IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-<<<<<<< HEAD
 import toast from "react-hot-toast";             //for displaying notifications
 import axios from "axios";
-=======
-import toast from "react-hot-toast";
-import axios from 'axios';
-
-const baseURL = import.meta.env.VITE_BASE_URL;
->>>>>>> d4247ae4db9b56740ae1effe3b5262515253c4c8
 
 export default function BlogCard({
   title,
@@ -60,7 +53,6 @@ export default function BlogCard({
       }}
     >
       <Box display="flex" alignItems="center" justifyContent="space-between">
-<<<<<<< HEAD
       <Box display="flex" alignItems="center">
         <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
           {username ? username[0].toUpperCase() : "U"}
@@ -71,8 +63,6 @@ export default function BlogCard({
       </Box>
 
       {isUser && (                                                         //We will show edit and delete icons only if user is logged in 
-=======
->>>>>>> d4247ae4db9b56740ae1effe3b5262515253c4c8
         <Box display="flex" alignItems="center">
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
             {username ? username[0].toUpperCase() : "U"}
@@ -80,7 +70,7 @@ export default function BlogCard({
           <Box ml={1}> {/* Margin-left to add space between avatar and text */}
             {username || "Unknown User"}
           </Box>
-        </Box>
+        </Box>)}
 
         {isUser && (
           <Box display="flex" alignItems="center">
