@@ -6,16 +6,24 @@ import { useDispatch } from "react-redux";
 import { authActions } from "../redux/store";
 import toast from "react-hot-toast";
 
+<<<<<<< HEAD
+=======
+//for debugging:
+console.log(import.meta.env);
+
+const baseURL = import.meta.env.VITE_BASE_URL;
+
+>>>>>>> d4247ae4db9b56740ae1effe3b5262515253c4c8
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  //state
+  
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
   });
 
-  //handle input change
+  // Handle input change
   const handleChange = (e) => {
     setInputs((prevState) => ({
       ...prevState,
@@ -23,24 +31,26 @@ const Login = () => {
     }));
   };
 
-  //form handle
+  // Form handle
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("/api/v1/user/login", {
+      const { data } = await axios.post(`${baseURL}/api/v1/user/login`, {
         email: inputs.email,
         password: inputs.password,
       });
       if (data.success) {
         localStorage.setItem("userId", data?.user._id);
         dispatch(authActions.login());
-        toast.success("User login Successfully");
+        toast.success("User logged in successfully");
         navigate("/");
       }
     } catch (error) {
       console.log(error);
+      toast.error("Login failed. Please try again.");
     }
   };
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -70,7 +80,7 @@ const Login = () => {
             value={inputs.email}
             name="email"
             margin="normal"
-            type={"email"}
+            type="email"
             required
             onChange={handleChange}
           />
@@ -79,7 +89,7 @@ const Login = () => {
             value={inputs.password}
             name="password"
             margin="normal"
-            type={"password"}
+            type="password"
             required
             onChange={handleChange}
           />
@@ -96,7 +106,7 @@ const Login = () => {
             onClick={() => navigate("/register")}
             sx={{ borderRadius: 3, marginTop: 3 }}
           >
-            Not a user ? Please Register
+            Not a user? Please Register
           </Button>
         </Box>
       </form>

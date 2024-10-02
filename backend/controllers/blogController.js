@@ -106,7 +106,7 @@ exports.getBlogByIdController = async (req, res) => {
     if (!blog) {
       return res.status(404).send({
         success: false,
-        message: "blog not found with this is",
+        message: "blog not found with this id",
       });
     }
     return res.status(200).send({

@@ -3,16 +3,20 @@ import { useNavigate } from "react-router-dom";
 import { Box, Typography, TextField, Button } from "@mui/material";
 import toast from "react-hot-toast";
 import axios from "axios";
+
+const baseURL = import.meta.env.VITE_BASE_URL;
+
 const Register = () => {
   const navigate = useNavigate();
-  //state
+  
+  // State
   const [inputs, setInputs] = useState({
     username: "",
     email: "",
     password: "",
   });
 
-  //handle input change
+  // Handle input change
   const handleChange = (e) => {
     setInputs((prevState) => ({
       ...prevState,
@@ -20,24 +24,26 @@ const Register = () => {
     }));
   };
 
-  //form handle
+  // Form handle
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("/api/v1/user/register", {
+      const { data } = await axios.post(`${baseURL}/api/v1/user/register`, {
         username: inputs.username,
         email: inputs.email,
         password: inputs.password,
-        blogs:[]
+        blogs: [] 
       });
       if (data.success) {
-        toast.success("User Register Successfully");
+        toast.success("User Registered Successfully");
         navigate("/login");
       }
     } catch (error) {
       console.log(error);
+      toast.error("Registration failed. Please try again.");
     }
   };
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -63,11 +69,11 @@ const Register = () => {
           </Typography>
           <TextField
             placeholder="username"
-            value={inputs.usernamename}
+            value={inputs.username}
             onChange={handleChange}
             name="username"
             margin="normal"
-            type={"text"}
+            type="text"
             required
           />
           <TextField
@@ -75,7 +81,7 @@ const Register = () => {
             value={inputs.email}
             name="email"
             margin="normal"
-            type={"email"}
+            type="email"
             required
             onChange={handleChange}
           />
@@ -84,7 +90,7 @@ const Register = () => {
             value={inputs.password}
             name="password"
             margin="normal"
-            type={"password"}
+            type="password"
             required
             onChange={handleChange}
           />
@@ -101,7 +107,7 @@ const Register = () => {
             onClick={() => navigate("/login")}
             sx={{ borderRadius: 3, marginTop: 3 }}
           >
-            Already Registerd ? Please Login
+            Already Registered? Please Login
           </Button>
         </Box>
       </form>

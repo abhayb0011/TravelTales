@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import BlogCard from "../components/BlogCard";
+
+const baseURL = import.meta.env.VITE_BASE_URL;
+
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
-  //get blogs
+
+  // Get blogs
   const getAllBlogs = async () => {
     try {
-      const { data } = await axios.get("/api/v1/blog/all-blog");
+      const { data } = await axios.get(`${baseURL}/api/v1/blog/all-blog`);
       if (data?.success) {
         setBlogs(data?.blogs);
       }
@@ -14,15 +18,22 @@ const Blogs = () => {
       console.log(error);
     }
   };
+
   useEffect(() => {
     getAllBlogs();
+<<<<<<< HEAD
   }, []);   //Empty dependency array [] in useEffect() hook means getAllBlogs() will be called only when blogs gets mounted (means when it is rendered first time)
             //It will not rerun until blogs is component is mounted again and again  
+=======
+  }, []);
+
+>>>>>>> d4247ae4db9b56740ae1effe3b5262515253c4c8
   return (
     <div>
       {blogs &&
         blogs.map((blog) => (
           <BlogCard
+            key={blog?._id}
             id={blog?._id}
             isUser={localStorage.getItem("userId") === blog?.user?._id}
             title={blog?.title}

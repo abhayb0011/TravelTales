@@ -3,6 +3,9 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Box, Button, InputLabel, TextField, Typography } from "@mui/material";
 import toast from "react-hot-toast";
+
+const baseURL = import.meta.env.VITE_BASE_URL;
+
 const CreateBlog = () => {
   const id = localStorage.getItem("userId");
   const navigate = useNavigate();
@@ -11,18 +14,24 @@ const CreateBlog = () => {
     description: "",
     image: "",
   });
-  // input change
+
+  // Input change handler
   const handleChange = (e) => {
     setInputs((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
   };
+<<<<<<< HEAD
   
+=======
+
+  // Form submission handler
+>>>>>>> d4247ae4db9b56740ae1effe3b5262515253c4c8
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("/api/v1/blog/create-blog", {
+      const { data } = await axios.post(`${baseURL}/api/v1/blog/create-blog`, {
         title: inputs.title,
         description: inputs.description,
         image: inputs.image,
@@ -36,6 +45,7 @@ const CreateBlog = () => {
       console.log(error);
     }
   };
+
   return (
     <>
       <form onSubmit={handleSubmit}>

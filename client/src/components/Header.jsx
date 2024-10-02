@@ -7,6 +7,12 @@ import {
   Button,
   Typography,
   IconButton,
+  Drawer,
+  List,
+  ListItem,
+  Divider,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -15,13 +21,20 @@ import toast from "react-hot-toast";
 import logo from "../assets/logoTravelTales.png";
 
 const Header = () => {
-  // global state
   const isLogin =
+<<<<<<< HEAD
     useSelector((state) => state.isLogin) || localStorage.getItem("userId");  //value of isLogin from global state and userId taken from browser local's storage 
   const dispatch = useDispatch();                                             //to dispatch(make changes) to global state
   const navigate = useNavigate();                                             //to navigate between routes
+=======
+    useSelector((state) => state.isLogin) || localStorage.getItem("userId");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const [drawerOpen, setDrawerOpen] = useState(false);
+>>>>>>> d4247ae4db9b56740ae1effe3b5262515253c4c8
 
-  // logout
   const handleLogout = () => {
     try {
       dispatch(authActions.logout());                                        
@@ -33,18 +46,68 @@ const Header = () => {
     }
   };
 
+  const toggleDrawer = (open) => () => {
+    setDrawerOpen(open);
+  };
+
+  const drawerItems = (
+    <Box
+      sx={{ width: 250 }}
+      role="presentation"
+      onClick={toggleDrawer(false)}
+      onKeyDown={toggleDrawer(false)}
+    >
+      <List>
+        {isLogin && (
+          <>
+            <ListItem Button component={Link} to="/blogs">
+              Blogs
+            </ListItem>
+            <ListItem Button component={Link} to="/my-blogs">
+              My Blogs
+            </ListItem>
+            <ListItem Button component={Link} to="/create-blog">
+              Create Blog
+            </ListItem>
+            <Divider />
+          </>
+        )}
+        {!isLogin && (
+          <>
+            <ListItem button component={Link} to="/login">
+              Login
+            </ListItem>
+            <ListItem button component={Link} to="/register">
+              Register
+            </ListItem>
+            <Divider />
+          </>
+        )}
+        {isLogin && (
+          <ListItem button onClick={handleLogout}>
+            Logout
+          </ListItem>
+        )}
+      </List>
+    </Box>
+  );
+
   return (
     <>
-      <AppBar position="sticky" style={{ backgroundColor: "#424242" }}>
-        <Toolbar>
-          <IconButton edge="start" sx={{ p: 0, mr: 10 }}>
+      <AppBar position = {isMobile ? "static" : "sticky"} sx={{ backgroundColor: "#424242" }}>
+        <Toolbar
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            p: 2,
+            justifyContent: "space-between"
+          }}
+        >
+          <IconButton edge="start" sx={{ p: 0}}>
             <img
               src={logo}
               alt="Logo"
-              style={{
-                height: "10rem",
-                width: "auto",
-              }}
+              style={{ height: "5rem", width: "auto" }}
             />
           </IconButton>
           <Typography
@@ -53,70 +116,93 @@ const Header = () => {
               flexGrow: 1,
               fontFamily: "Dancing Script, Arial",
               fontWeight: 700,
-              fontSize: 32,
+              fontSize: { xs: 24, sm: 32 },
+              textAlign: { xs: "center", sm: "left" },
+              mb: { xs: 2, sm: 0 },
+              ml: {md:'15rem',sm:'2rem',xs:'1rem'}
             }}
           >
             Unveiling the World's Wonders Through Captivating Blogs
           </Typography>
-          {isLogin && (
-            <Box display={"flex"} marginLeft="auto" marginRight={"auto"}>
-              <Button
-                sx={{ margin: 1, color: "white" }}
-                variant="contained"
-                component={Link}
-                to="/blogs"
+          {isMobile ? (
+            <>
+              <IconButton
+                edge="end"
+                color="inherit"
+                onClick={toggleDrawer(true)}
+                sx={{ ml: 2 }}
               >
-                Blogs
-              </Button>
-              <Button
-                sx={{ margin: 1, color: "white" }}
-                variant="contained"
-                component={Link}
-                to="/my-blogs"
+                <i className="fas fa-bars"></i> 
+              </IconButton>
+              <Drawer
+                anchor="right"
+                open={drawerOpen}
+                onClose={toggleDrawer(false)}
               >
-                My Blogs
-              </Button>
-              <Button
-                sx={{ margin: 1, color: "white" }}
-                variant="contained"
-                component={Link}
-                to="/create-blog"
-              >
-                Create Blog
-              </Button>
+                {drawerItems}
+              </Drawer>
+            </>
+          ) : (
+            <Box display="flex" flexDirection="row" sx={{ gap: 2 }}>
+              {isLogin && (
+                <>
+                  <Button
+                    sx={{ color: "white" }}
+                    variant="contained"
+                    component={Link}
+                    to="/blogs"
+                  >
+                    Blogs
+                  </Button>
+                  <Button
+                    sx={{ color: "white" }}
+                    variant="contained"
+                    component={Link}
+                    to="/my-blogs"
+                  >
+                    My Blogs
+                  </Button>
+                  <Button
+                    sx={{ color: "white" }}
+                    variant="contained"
+                    component={Link}
+                    to="/create-blog"
+                  >
+                    Create Blog
+                  </Button>
+                </>
+              )}
+              {!isLogin && (
+                <>
+                  <Button
+                    sx={{ color: "white" }}
+                    variant="contained"
+                    component={Link}
+                    to="/login"
+                  >
+                    Login
+                  </Button>
+                  <Button
+                    sx={{ color: "white" }}
+                    variant="contained"
+                    component={Link}
+                    to="/register"
+                  >
+                    Register
+                  </Button>
+                </>
+              )}
+              {isLogin && (
+                <Button
+                  onClick={handleLogout}
+                  variant="contained"
+                  sx={{ color: "white" }}
+                >
+                  Logout
+                </Button>
+              )}
             </Box>
           )}
-          <Box display={"flex"} marginLeft="auto">
-            {!isLogin && (
-              <>
-                <Button
-                  sx={{ margin: 1, color: "white" }}
-                  variant="contained"
-                  component={Link}
-                  to="/login"
-                >
-                  Login
-                </Button>
-                <Button
-                  sx={{ margin: 1, color: "white" }}
-                  component={Link}
-                  variant="contained"
-                  to="/register"
-                >
-                  Register
-                </Button>
-              </>
-            )}
-            {isLogin && (
-              <Button
-                onClick={handleLogout}
-                variant="contained"
-                sx={{ margin: 1, color: "white" }}
-              >
-                Logout
-              </Button>
-            )}
-          </Box>
         </Toolbar>
       </AppBar>
     </>
