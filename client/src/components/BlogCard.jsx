@@ -64,26 +64,16 @@ export default function BlogCard({
         </Box>
       </Box>
 
-      {isUser && (                                                         //We will show edit and delete icons only if user is logged in 
+      {isUser && (                                        //We will show edit and delete icons only if user is logged in
         <Box display="flex" alignItems="center">
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            {username ? username[0].toUpperCase() : "U"}
-          </Avatar>
-          <Box ml={1}> {/* Margin-left to add space between avatar and text */}
-            {username || "Unknown User"}
-          </Box>
-        </Box>)}
-
-        {isUser && (
-          <Box display="flex" alignItems="center">
-            <IconButton onClick={handleEdit} sx={{ marginLeft: 1 }}>
-              <ModeEditIcon color="info" />
-            </IconButton>
-            <IconButton onClick={handleDelete} sx={{ marginLeft: 1 }}>
-              <DeleteIcon color="error" />
-            </IconButton>
-          </Box>
-        )}
+          <IconButton onClick={handleEdit} sx={{ marginLeft: 1 }}>
+            <ModeEditIcon color="info" />
+          </IconButton>
+          <IconButton onClick={handleDelete} sx={{ marginLeft: 1 }}>
+            <DeleteIcon color="error" />
+          </IconButton>
+        </Box>
+      )}
       </Box>
       <br />
       <CardMedia component="img" height={{sx:'100rem',sm:'200rem',md:'500rem'}} image={image} alt="Blog image" />
