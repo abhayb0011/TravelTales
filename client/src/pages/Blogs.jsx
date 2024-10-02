@@ -1,4 +1,4 @@
-import React, { useState, useFocusEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import BlogCard from "../components/BlogCard";
 
@@ -19,7 +19,7 @@ const Blogs = () => {
     }
   };
 
-  useFocusEffect(() => {
+  useEffect(() => {
     getAllBlogs();
   });   /*      */  
   return (
