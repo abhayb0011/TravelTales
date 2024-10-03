@@ -68,17 +68,17 @@ const Header = () => {
         )}
         {!isLogin && (
           <>
-            <ListItem button component={Link} to="/login">
+            <ListItem Button component={Link} to="/login">
               Login
             </ListItem>
-            <ListItem button component={Link} to="/register">
+            <ListItem Button component={Link} to="/register">
               Register
             </ListItem>
             <Divider />
           </>
         )}
         {isLogin && (
-          <ListItem button onClick={handleLogout}>
+          <ListItem Button onClick={handleLogout}>
             Logout
           </ListItem>
         )}
